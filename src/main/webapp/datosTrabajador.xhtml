@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>DatosTrabajadores</title>
+    </h:head>
+    <h:body>
+       <h:form>
+           <p:panel style="margin-bottom:20px">
+           <h1 align="center">Registro Empleados</h1>
+           <h3>                   <p:button value="Nuevo" outcome="index.xhtml" /></h3>
+           </p:panel>
+           
+        </h:form>
+        <p:dataTable id="data" value="#{listar.listaUsuarios}"  var="tabla" rows="#{tabla.id}" paginator="true"
+                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                 currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} pagina"
+                 rowsPerPageTemplate="5,10,15" >
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Cedula" />
+                </f:facet> 
+                   <h:outputText value="#{tabla.cedula}" />
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Nombre" />
+                </f:facet>
+                <h:outputText value="#{tabla.nombre}" />
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Apellido" />
+                </f:facet>
+                    <h:outputText value="#{tabla.apellido}" />
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Fecha De Nacimiento" />
+                </f:facet>
+                <h:outputText value="#{tabla.fechaNacimiento}" />
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Estudios" />
+                </f:facet>
+                <h:outputText value="#{tabla.estudio}" />
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Idiomas" />
+                </f:facet>
+                <h:outputText value="#{tabla.idiomas}" />
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Dias Trabajados" />
+                </f:facet>
+                <h:outputText value="#{tabla.diasTrabajados}" />
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Suledo" />
+                </f:facet>
+                <h:outputText value="#{tabla.sueldo}" />
+            </p:column>
+        </p:dataTable>
+        
+        
+           
+    </h:body>
+</html>
+

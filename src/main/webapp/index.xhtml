@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+      <h:head>
+          
+        <title>Formulario</title>
+        <f:facet name="primero">
+        <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+        </f:facet>
+        <font style="vertical-align: inherit" >
+            <p:panel  style="margin-bottom:20px">
+                <h1 align="center">JAVA JSF</h1>
+            <h1 align="center"><p:graphicImage url="imagenes/javajee.jpg" height="100px" width="200px" /> </h1>
+            </p:panel>
+        </font>
+    </h:head>
+    <h:body id="principal">
+        
+        <h:form id="form">
+             <p:panel  header="Ingreso Personal" style="margin-bottom:20px">
+              
+                 <div align="center">
+                     <br><p:outputLabel for="cedula" value="Cedula:" /></br>
+                <p:inputText  id="cedula" label="ingrese su cedula" required="true" value="#{crearUsuario.usuario.cedula}" />
+                <h:message for="cedula" /></div>
+               
+                 <div align="center">
+                <br> <h:outputLabel for="txtNombre" value="Nombre:" /></br>
+                <p:inputText id="txtNombre" label="ingrese su nombre" required="true" value="#{crearUsuario.usuario.nombre}" />
+                <h:message for="txtNombre" /></div>
+
+                 <div align="center">
+                <br><h:outputLabel for="txtApellido" value="Apellido:" /></br>
+                <p:inputText id="txtApellido" label="ingrese su Apellido" required="true" value="#{crearUsuario.usuario.apellido}" />
+                <p:message for="txtApellido" /></div>
+
+                 <div align="center">
+                <br><h:outputLabel for="txtFecha" value="Fecha de nacimiento:" /></br>
+                <p:inputText id="txtFecha" label="ingrese su Fecha de nacimiento" required="true" value="#{crearUsuario.usuario.fechaNacimiento}" />
+                <h:message for="txtFecha" /></div>
+                 <div align="center">
+                <br><h:outputLabel for="txtEstudio" value="Nivel De Estudio:" /></br>
+                <p:selectOneMenu id="txtEstudio" label="seleccione un nivel de estudio" required="true" value="#{crearUsuario.usuario.estudio}">
+                    <p:message for="txtEstudio" />
+                    <f:selectItem itemValue="Secundaria" itemLabel="Secundaria" />
+                    <f:selectItem itemValue="Tecnico" itemLabel="Tecnico" />
+                    <f:selectItem itemValue="Profesional" itemLabel="Profesional" />
+                    <f:selectItem itemValue="Magister" itemLabel="Magister" />
+                    
+                </p:selectOneMenu>
+            </div>
+                 <div align="center">
+            <br><h:outputLabel for="txtIdioma" value="Idiomas:" /></br>
+            <p:selectManyCheckbox id="txtIdioma" label="seleccione un idioma" required="true" value="#{crearUsuario.idioma_seleccionado}">
+                <p:message for="txtIdioma" />
+                <f:selectItem itemValue="Primaria" itemLabel="Primaria" />
+                    <f:selectItem itemValue="Ingles" itemLabel="Ingles" />
+                    <f:selectItem itemValue="Frances" itemLabel="Frances" />
+                    <f:selectItem itemValue="Portugues" itemLabel="Portugues" />
+                    <f:selectItem itemValue="Mandarin" itemLabel="MaMandarin" />
+                    <f:selectItem itemValue="Italiano" itemLabel="Italiano" />
+            </p:selectManyCheckbox>
+                 </div>
+
+                 <div align="center" style="padding: 30px">
+                <br> <h:outputLabel for="txtDiasTrabajados" value="Dias Trabajados:" /></br>
+                <p:inputText id="txtDiasTrabajados" label="ingrese Dias Trabajados" required="true" value="#{crearUsuario.usuario.diasTrabajados}" />
+                <p:message for="txtDiasTrabajados" /></div>
+                 <div align="center">     
+            <ul>
+                <br> <li> <p:commandButton style="width: 20%" value="Agregar"  action="#{crearUsuario.crear()}" /></li> </br>
+                <li><p:button style="width: 20%" value="Registros" outcome="/datosTrabajador" /></li>
+            </ul>
+                 </div>
+           </p:panel>
+            
+        </h:form>
+    </h:body>
+</html>
+
